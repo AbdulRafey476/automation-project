@@ -21,7 +21,7 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build -t sheikhwasay0/simple-web:latest ./app
+          docker build -t sheikhwasay0/simple-web:latest ./cloud-deploy/app
 
       - name: Push the image
         run: |
