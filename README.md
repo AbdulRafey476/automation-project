@@ -1,2 +1,2 @@
 # automation-project
-networking projecct
+networking project
