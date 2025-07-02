@@ -1,0 +1,41 @@
+---
+- name: Install and configure Docker on EC2 (Amazon Linux 2023)
+  hosts: web
+  become: yes
+  tasks:
+    - name: Update all packages
+      yum:
+        name: "*"
+        state: latest
+
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start and enable Docker
+      systemd:  # Use systemd on Amazon Linux 2023
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Add ec2-user to Docker group
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
+
+    - name: Pull web image from Docker Hub
+      docker_image:
+        name: sheikhwasay0/simple-web
+        tag: latest
+        source: pull
+
+    - name: Run the web container
+      docker_container:
+        name: simple-web
+        image: sheikhwasay0/simple-web:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
