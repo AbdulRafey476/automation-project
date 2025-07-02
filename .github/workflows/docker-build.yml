@@ -1,9 +1,9 @@
-name: Build and Push Docker Image
+name: Build, Push and Deploy Docker Image
 
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
   build-and-push:
@@ -21,8 +21,27 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build -t sheikhwasay0/simple-web:latest ./cloud-deploy/app
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/simple-web:latest ./app
 
       - name: Push the image
         run: |
-          docker push sheikhwasay0/simple-web:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/simple-web:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup SSH key
+        run: |
+          echo "${{ secrets.EC2_KEY }}" > ec2-key.pem
+          chmod 600 ec2-key.pem
+
+      - name: SSH and Deploy on EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ec2-key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            docker pull ${{ secrets.DOCKER_USERNAME }}/simple-web:latest
+            docker stop simple-web || true
+            docker rm simple-web || true
+            docker run -d -p 80:80 --name simple-web ${{ secrets.DOCKER_USERNAME }}/simple-web:latest
+          EOF
