@@ -184,7 +184,7 @@ Covers:
 
 ## 🔗 Author & Contact
 
-- **Name:** Abdul Rafey  
+- **Name:** Abdul Rafey  & Shaikh Saad
 - **Module:** B9IS121 – Network Systems and Administration  
 - **Instructor:** Kingsley Ibomo  
 - **GitHub:** [@AbdulRafey476](https://github.com/AbdulRafey476)
