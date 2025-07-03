@@ -14,7 +14,7 @@
         state: present
 
     - name: Start and enable Docker
-      systemd:  # Use systemd on Amazon Linux 2023
+      systemd:  
         name: docker
         state: started
         enabled: true
