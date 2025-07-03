@@ -10,14 +10,14 @@ terraform {
 provider "aws" {
   region                   = "us-east-1"
   shared_credentials_files = ["C:/Users/sheik/.aws/credentials"]
-  profile                  = "abdul"
+  profile                  = "sheikh-rafey"
 
 }
 
 # Security Groups
 resource "aws_security_group" "ssh_sg" {
   name   = "ssh-sg"
-  vpc_id = "vpc-01309b5431b48d98f"
+  vpc_id = "vpc-0ba3bf6ccde2ac87e"
 
   tags = {
     Name = "ssh-sg"
@@ -49,7 +49,7 @@ resource "aws_vpc_security_group_egress_rule" "allow_all" {
 resource "aws_instance" "app_server" {
   ami                         = "ami-05ffe3c48a9991133"
   instance_type               = "t2.micro"
-  key_name                    = "networking-key"
+  key_name                    = "ssh-networking-key"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.ssh_sg.id]
 

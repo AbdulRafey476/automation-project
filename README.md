@@ -83,7 +83,7 @@ Edit your `inventory.ini` file:
 
 ```ini
 [web]
-<EC2_PUBLIC_IP> ansible_user=ec2-user ansible_ssh_private_key_file=~/.ssh/networking-key.pem
+<EC2_PUBLIC_IP> ansible_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ssh-networking-key.pem
 ```
 
 Run the playbook:
@@ -96,7 +96,7 @@ ansible-playbook playbook.yml -i inventory.ini
 Ansible will:
 - SSH into the EC2 instance
 - Install Docker
-- Pull and run a Docker image (e.g., `abdulrafey476/simple-web:latest`)
+- Pull and run a Docker image (e.g., `abdulrafey/simple-web:latest`)
 
 ---
 
