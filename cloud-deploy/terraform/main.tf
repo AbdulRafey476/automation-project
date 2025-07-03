@@ -57,6 +57,8 @@ resource "aws_instance" "app_server" {
     Name = "web-server"
   }
 }
+
+# Instance Public IP 
 output "public_ip" {
   description = "EC2 public IP"
   value       = aws_instance.app_server.public_ip
