@@ -27,14 +27,14 @@
 
     - name: Pull web image from Docker Hub
       docker_image:
-        name: sheikhwasay0/simple-web
+        name: abdulrafey476/simple-web
         tag: latest
         source: pull
 
     - name: Run the web container
       docker_container:
         name: simple-web
-        image: sheikhwasay0/simple-web:latest
+        image: abdulrafey476/simple-web:latest
         state: started
         restart_policy: always
         ports:

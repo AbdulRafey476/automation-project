@@ -96,7 +96,7 @@ ansible-playbook playbook.yml -i inventory.ini
 Ansible will:
 - SSH into the EC2 instance
 - Install Docker
-- Pull and run a Docker image (e.g., `sheikhwasay0/simple-web:latest`)
+- Pull and run a Docker image (e.g., `abdulrafey476/simple-web:latest`)
 
 ---
 
