@@ -90,7 +90,7 @@ Run the playbook:
 
 ```bash
 cd ../ansible
-ansible-playbook playbook.yml -i inventory.ini
+ansible-playbook docker-installation.yml -i inventory.ini
 ```
 
 Ansible will:
@@ -114,7 +114,7 @@ You should see the deployed web app.
 
 ## 🔁 CI/CD with GitHub Actions (Optional)
 
-The GitHub Actions pipeline in `.github/workflows/deploy.yml` can:
+The GitHub Actions pipeline in `.github/workflows/docker-build.yml` can:
 - Validate Terraform formatting
 - Run Ansible lint checks
 - Trigger on push or pull request
