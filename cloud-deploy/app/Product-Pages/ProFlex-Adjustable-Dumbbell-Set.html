@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | TrainHub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo"> <img src="../images/logo.png" height="50" alt="logo" />
+        <span>TrainHub</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href=".../products.html">Products</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="Treadmill">
+    <div class="product-card">
+      <div class="product-title">ProFlex Adjustable Dumbbell Set</div>
+
+      <div class="product-content">
+        <div class="product-image-section">
+          <div class="main-product-display">
+            <img id="mainProductImage" src="../images/dumbell/Dumbbell.jpg" alt="ProFlex Adjustable Dumbbell Set" />
+            <video id="mainProductVideo" controls style="display: none">
+              <source src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="product-media-gallery">
+            <div class="thumbnail-slider">
+              <img src="../images/dumbell/Dumbbell.jpg" data-full-src="../images/dumbell/Dumbbell.jpg"
+                class="gallery-thumbnail active" alt="Thumbnail 1" />
+              <img src="../images/dumbell/Dumbbell-thumb1.jpg" data-full-src="../images/dumbell/Dumbbell-thumb1.jpg"
+                class="gallery-thumbnail" alt="Thumbnail 2" />
+              <img src="../images/dumbell/Dumbbell-thumb2.jpg" data-full-src="../images/dumbell/Dumbbell-thumb2.jpg"
+                class="gallery-thumbnail" alt="Thumbnail 3" />
+              <img src="../images/dumbell/Dumbbell-thumb3.jpg" data-full-src="../images/dumbell/Dumbbell-thumb3.jpg"
+                class="gallery-thumbnail" alt="Thumbnail 4" />
+              <div class="gallery-video-thumbnail" data-full-video-src="../images/dumbell/dumbell.mp4">
+                <img src="../images/dumbell/Dumbbell.jpg" alt="Play video" />
+                <span class="play-icon">&#9658;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-info-section">
+          <div class="rating">★★★★☆ (4.5/5)</div>
+          <div class="price">$349.99</div>
+          <div class="details">
+            The ProFlex Adjustable Dumbbell Set replaces multiple individual
+            dumbbells, saving space and providing a versatile solution for
+            strength training. Easily adjust weights with a simple turn of a
+            dial.
+          </div>
+          <div class="features">
+            <strong>Features:</strong>
+            <ul>
+              <li>Adjusts from 5 lbs to 52.5 lbs per dumbbell</li>
+              <li>Quick and easy weight selection mechanism</li>
+              <li>Compact design</li>
+              <li>Durable construction</li>
+              <li>Ergonomic grip</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reservation-section">
+      <div class="reservation-container">
+        <h2>Reserve This Item</h2>
+        <form id="reservationForm">
+          <div class="form-group">
+            <label for="fullName">Your Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number (Optional):</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <button type="submit" id="reserveButton">Reserve Now</button>
+        </form>
+        <div id="reservationMessage" style="display: none">
+          <p>
+            Thank you for your reservation — you have successfully booked:
+            <strong><span id="reservedItemName"></span></strong>! We will be
+            in touch shortly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

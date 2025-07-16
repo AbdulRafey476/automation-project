@@ -2,13 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | TrainHub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <h1>Updated [Even death, I'm The Hero] </h1>
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo"> <img src="./images/logo.png" height="50" alt="logo" />
+        <span>TrainHub</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home">
+    <section class="hero">
+      <h1>Your Gym, Your Rules</h1>
+      <p>
+        Transform any space into your personal fitness sanctuary with TrainHub
+        curated collection
+      </p>
+      <a href="products.html">
+        <button type="button" class="shop-now-btn">Shop Now</button>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TrainHub All Rights Reserved</p>
+  </footer>
 </body>
 
 </html>

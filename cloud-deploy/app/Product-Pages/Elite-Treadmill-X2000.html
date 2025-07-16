@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | TrainHub</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo"> <img src="../images/logo.png" height="50" alt="logo" />
+        <span>TrainHub</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href=".../products.html">Products</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="Treadmill">
+    <div class="product-card">
+      <div class="product-title">Elite Treadmill X2000</div>
+
+      <div class="product-content">
+        <div class="product-image-section">
+          <div class="main-product-display">
+            <img id="mainProductImage" src="../images/treadmil/Treadmill.jpg" alt="Elite Treadmill X2000" />
+            <video id="mainProductVideo" controls style="display: none">
+              <source src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="product-media-gallery">
+            <div class="thumbnail-slider">
+              <img src="../images/treadmil/Treadmill.jpg" data-full-src="../images/treadmil/Treadmill.jpg"
+                class="gallery-thumbnail active" alt="Thumbnail 1" />
+              <img src="../images/treadmil/Treadmill-thumb1.jpg" data-full-src="../images/treadmil/Treadmill-thumb1.jpg"
+                class="gallery-thumbnail" alt="Thumbnail 2" />
+              <img src="../images/treadmil/Treadmill-thumb2.jpg" data-full-src="../images/treadmil/Treadmill-thumb2.jpg"
+                class="gallery-thumbnail" alt="Thumbnail 3" />
+              <img src="../images/treadmil/Treadmill-thumb3.jpg" data-full-src="../images/treadmil/Treadmill-thumb3.jpg"
+                class="gallery-thumbnail" alt="Thumbnail 3" />
+              <div class="gallery-video-thumbnail" data-full-video-src="../images/treadmil/treadmill-video.mp4">
+                <img src="../images/treadmil/Treadmill.jpg" alt="Play video" />
+                <span class="play-icon">&#9658;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-info-section">
+          <div class="rating">★★★★★ (4.8/5)</div>
+          <div class="price">$1,299.99</div>
+          <div class="details">
+            The Elite Treadmill X2000 is designed for serious runners,
+            offering a robust motor and a spacious running deck. It features a
+            high-definition touch display and integration with popular fitness
+            apps.
+          </div>
+          <div class="features">
+            <strong>Features:</strong>
+            <ul>
+              <li>2.5 HP Continuous Duty Motor</li>
+              <li>0.5–12 mph speed range</li>
+              <li>0–15% incline range</li>
+              <li>20" x 60" running surface</li>
+              <li>Built-in speakers and device holder</li>
+              <li>Foldable design for easy storage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reservation-section">
+      <div class="reservation-container">
+        <h2>Reserve This Item</h2>
+        <form id="reservationForm">
+          <div class="form-group">
+            <label for="fullName">Your Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number (Optional):</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <button type="submit" id="reserveButton">Reserve Now</button>
+        </form>
+        <div id="reservationMessage" style="display: none">
+          <p>
+            Thank you for your reservation — you have successfully booked:
+            <strong><span id="reservedItemName"></span></strong>! We will be
+            in touch shortly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,733 @@
+/* ========================================================
+   GLOBAL BASE STYLES & RESET
+   Establishes a consistent foundation for all elements,
+   resets default browser margins/paddings, and defines
+   base typography for the application.
+======================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+body {
+  font-family: "Inter", sans-serif; /* Preferred modern sans-serif font */
+  line-height: 1.6; /* Improves readability by increasing line spacing */
+  color: #333; /* Dark gray for primary text */
+  background-color: #f4f4f4; /* Light gray background for the entire page */
+}
+
+a {
+  text-decoration: none; /* Removes default underline from links */
+  color: #ffffff; /* White color for links, typically overridden by specific sections */
+}
+
+ul {
+  list-style: none; /* Removes bullet points from unordered lists */
+}
+
+/* ========================================================
+   NAVIGATION BAR
+   Styles for the main navigation, including logo, links,
+   and the mobile hamburger menu toggle.
+======================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Aligns logo to start and nav links/toggle to end */
+  align-items: center; /* Vertically centers items */
+  padding: 1rem;
+  background-color: #00aaff; /* Vibrant blue background */
+  color: #fff; /* White text color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: relative; /* Essential for positioning the mobile navigation links absolutely within it */
+}
+
+/* Logo container styling: Stacks image and text vertically */
+.logo {
+  display: flex;
+  flex-direction: column; /* Arranges logo image and text in a vertical column */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centers text below the logo image */
+}
+
+/* Space below the logo image for better separation from text */
+.logo img {
+  margin-bottom: 5px;
+}
+
+/* Styling for the main logo text */
+.navbar span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2; /* Adjusts line height to prevent excessive spacing for multi-line text */
+}
+
+/* Logo link styling to ensure proper display and z-index for clickability */
+.logo a {
+  display: flex; /* Maintains flex properties for internal alignment */
+  flex-direction: column; /* Ensures content within the link also stacks */
+  align-items: center;
+  text-decoration: none;
+  color: inherit; /* Inherits color from its parent (.navbar) */
+  cursor: pointer;
+  position: relative; /* Allows z-index to be applied */
+  z-index: 10; /* Ensures the logo is clickable above other potential overlapping elements */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem; /* Space between navigation items */
+}
+
+.nav-links a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white on hover */
+}
+
+/* Basic styles for the menu toggle button (Hamburger icon) */
+.menu-toggle {
+  display: none; /* Hidden by default on larger screens (desktop) */
+  flex-direction: column; /* Stacks hamburger lines vertically */
+  justify-content: space-around; /* Distributes space evenly between lines */
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20; /* Ensures the toggle button is on top of other content, especially the mobile menu */
+}
+
+.menu-toggle .hamburger {
+  width: 100%;
+  height: 3px;
+  background-color: white; /* Color of the hamburger lines */
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hamburger animation */
+}
+
+/* When the menu is active, transform the hamburger icon into a close icon */
+.menu-toggle.active .hamburger:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Rotates and moves the top line */
+}
+.menu-toggle.active .hamburger:nth-child(2) {
+  opacity: 0; /* Hides the middle line */
+}
+.menu-toggle.active .hamburger:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px); /* Rotates and moves the bottom line */
+}
+
+/* ========================================================
+   HERO SECTION
+   Full-height section with background image, prominent
+   headline, and a call-to-action button.
+======================================================== */
+.hero {
+  background-image: url("../images/people-workout-together.jpg"); /* Background image for the hero section */
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the entire container */
+  opacity: 0.9; /* Slight transparency for content visibility */
+  display: flex;
+  flex-direction: column; /* Stacks content (heading, paragraph, button) vertically */
+  align-items: flex-start; /* Aligns content to the left */
+  justify-content: center; /* Centers content vertically */
+  padding: 2rem;
+  height: 100vh; /* Makes the hero section take up the full viewport height */
+  text-align: left;
+  row-gap: 15px; /* Spacing between stacked items */
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a shadow for readability against the background image */
+}
+
+.hero p {
+  color: white;
+  max-width: 600px; /* Limits paragraph width for better readability */
+}
+
+.shop-now-btn {
+  width: 7rem;
+  height: 2.3rem;
+  background-color: #00aaff; /* Blue background for the button */
+  color: whitesmoke;
+  border-radius: 2rem; /* Highly rounded corners for a pill shape */
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out; /* Smooth transition for color and width change on hover */
+}
+
+.shop-now-btn:hover {
+  background-color: #007fbe; /* Darker blue on hover */
+  width: 8rem; /* Expands button width on hover */
+}
+
+/* ========================================================
+   SEARCH BAR
+   A flexible search input and button component.
+======================================================== */
+.search-bar-container {
+  margin: 20px auto; /* Centers the container horizontally */
+  padding: 15px;
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 8px;
+  display: flex; /* Arranges search input and button in a row */
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between input and button */
+  max-width: 600px; /* Limits maximum width */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#productSearch {
+  flex-grow: 1; /* Allows the input field to take up available space */
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none; /* Removes default focus outline */
+  transition: border-color 0.3s ease; /* Smooth transition for border color on focus */
+}
+
+#productSearch:focus {
+  border-color: #007bff; /* Blue border on focus */
+}
+
+#searchButton {
+  padding: 12px 20px;
+  background-color: #28a745; /* Green background for the search button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* ========================================================
+   PRODUCTS PAGE LAYOUT
+   Grid-based layout for displaying multiple product items.
+======================================================== */
+.products-page-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 20px auto; /* Centers the content area */
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: center; /* Centers items within the grid */
+  gap: 20px; /* Space between grid items */
+  padding: 20px 0;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: calc(33.333% - 20px); /* Calculates width for a 3-column layout, accounting for gap */
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+  margin-bottom: 20px; /* Space below each product item */
+}
+
+.product-item:hover {
+  transform: translateY(-5px); /* Lifts the product item slightly on hover */
+}
+
+.product-item a {
+  color: inherit; /* Inherits text color from parent */
+  text-decoration: none; /* Removes underline from product links */
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-item .product-name {
+  font-size: 1.3em;
+  color: #333;
+  margin-bottom: 5px;
+  text-decoration: none; /* Ensures no underline even if inside an `<a>` */
+}
+
+.product-item .product-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #007bff; /* Blue color for price */
+  margin-bottom: 15px;
+}
+
+/* ========================================================
+   INDIVIDUAL PRODUCT PAGE NAVIGATION
+   Styling for navigation links within an individual product page.
+======================================================== */
+.individual-product-page ul {
+  list-style: none; /* Explicitly removes default list styling */
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.individual-product-page li a {
+  display: inline-block; /* Allows padding and margin on anchor tags */
+  background-color: #6c757d; /* Gray background for navigation links */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.individual-product-page li a:hover {
+  background-color: #5a6268; /* Darker gray on hover */
+}
+
+/* ========================================================
+   PRODUCT DETAIL CARD & RESERVATION CONTAINER
+   Shared styles for content cards, including product details
+   and the reservation form layout.
+======================================================== */
+.product-card,
+.reservation-container {
+  /* reservation-container is grouped here due to shared structural and aesthetic styles */
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 12px; /* Rounded corners for the card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for prominence */
+  overflow: hidden; /* Ensures content respects border-radius */
+  margin: 20px auto; /* Centers the card horizontally */
+  padding: 20px;
+}
+
+.product-title,
+.reservation-container h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.product-content {
+  display: flex;
+  flex-wrap: wrap; /* Allows content sections to wrap onto new lines on smaller screens */
+  gap: 20px; /* Space between image and info sections */
+}
+
+.product-image-section {
+  flex: 1 1 45%; /* Allows the image section to grow, shrink, and occupy 45% base width */
+  min-width: 300px; /* Ensures the image section doesn't get too small */
+}
+
+.product-image-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.product-info-section {
+  flex: 1 1 50%; /* Allows the info section to grow, shrink, and occupy 50% base width */
+  padding: 0;
+}
+
+.rating {
+  color: #f5a623; /* Orange color for star ratings */
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.price {
+  color: #27ae60; /* Green color for price */
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.details,
+.features {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.features ul {
+  padding-left: 20px; /* Indents list items */
+  list-style: disc; /* Restores disc bullets for feature lists */
+}
+
+.media img {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* ========================================================
+   ADD TO CART BUTTON
+   Standard button styling for adding items to a cart.
+======================================================== */
+.add-to-cart {
+  background-color: #007bff; /* Primary blue button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* ========================================================
+   RESERVATION FORM
+   Layout and styling for the user reservation input form.
+======================================================== */
+.reservation-section {
+  display: flex;
+  justify-content: center; /* Centers the reservation container */
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.reservation-container {
+  width: 50%; /* Occupies half the width on larger screens */
+  padding: 50px; /* Generous padding inside the container */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Spacing between form input groups */
+}
+
+.form-group label {
+  display: block; /* Ensures label takes full width and input goes below */
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Crucial for input width calculation to include padding/border */
+}
+
+#reserveButton {
+  background-color: #007bff; /* Blue submit button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#reserveButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+#reservationMessage {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda; /* Light green background for success messages */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center; /* Centers the message text */
+  font-weight: bold; /* Makes the message prominent */
+}
+
+/* ========================================================
+   PRODUCT MEDIA GALLERY (THUMBNAILS & MAIN DISPLAY)
+   Controls the display of main product media and its
+   corresponding thumbnail navigation.
+======================================================== */
+.main-product-display {
+  width: 100%;
+  position: relative; /* Allows for absolute positioning of overlays if needed */
+  margin-bottom: 15px;
+}
+
+.main-product-display img,
+.main-product-display video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block; /* Removes extra space below inline images */
+  object-fit: cover; /* Ensures media covers the area without distortion */
+}
+
+.product-media-gallery {
+  overflow-x: auto; /* Enables horizontal scrolling if thumbnails exceed container width */
+  padding-bottom: 10px; /* Prevents scrollbar from overlapping content */
+}
+
+.thumbnail-slider {
+  display: flex;
+  gap: 10px; /* Space between thumbnails */
+  flex-wrap: nowrap; /* Prevents thumbnails from wrapping to the next line */
+  width: max-content; /* Ensures the flex container takes only the necessary width for its content */
+}
+
+.thumbnail-slider img.gallery-thumbnail,
+.thumbnail-slider .gallery-video-thumbnail {
+  width: 100px; /* Fixed width for thumbnails */
+  height: 100px; /* Fixed height for thumbnails, ensuring square aspect ratio */
+  border-radius: 6px;
+  object-fit: cover; /* Ensures thumbnail images/previews fill their container */
+  cursor: pointer;
+  border: 2px solid transparent; /* Transparent border by default for active state */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for active state */
+  flex-shrink: 0; /* Prevents thumbnails from shrinking when space is limited */
+}
+
+.thumbnail-slider .gallery-video-thumbnail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000; /* Black background for video thumbnails */
+}
+
+.thumbnail-slider .gallery-video-thumbnail img {
+  opacity: 0.7; /* Slightly dim the placeholder image for the play icon visibility */
+  width: 100%;
+  height: 100%;
+  border-radius: 6px; /* Matches container border-radius */
+  object-fit: cover;
+}
+
+.thumbnail-slider .gallery-video-thumbnail .play-icon {
+  position: absolute;
+  color: white;
+  font-size: 2em; /* Larger play icon */
+  pointer-events: none; /* Ensures clicks pass through to the underlying thumbnail element */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for better visibility */
+}
+
+/* Active state for selected thumbnails */
+.gallery-thumbnail.active,
+.gallery-video-thumbnail.active {
+  border-color: #00aaff; /* Blue border for the active thumbnail */
+  box-shadow: 0 0 5px rgba(0, 170, 255, 0.5); /* Subtle glowing effect for active thumbnail */
+}
+
+/* ========================================================
+   ABOUT PAGE
+   Styling for a static 'About Us' content section.
+======================================================== */
+main.about {
+  max-width: 900px;
+  margin: 40px auto; /* Centers the about section */
+  padding: 40px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Prominent shadow */
+  border-radius: 12px;
+  text-align: center;
+}
+
+main.about h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0077cc; /* Blue heading color */
+}
+
+main.about p {
+  font-size: 1.1rem;
+  line-height: 1.7; /* Increased line height for readability of body text */
+  color: #555;
+  max-width: 700px; /* Limits paragraph width for optimal line length */
+  margin: 0 auto; /* Centers paragraphs within the about section */
+}
+
+/* ========================================================
+   FOOTER
+   Simple footer for copyright or general information.
+======================================================== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #eee; /* Light gray background */
+  color: #555;
+  font-size: 0.9em;
+}
+
+/* ========================================================
+   RESPONSIVE STYLES
+   Media queries for adapting the layout across different
+   device screen sizes (mobile, tablet, desktop).
+======================================================== */
+
+/* --- Mobile Devices (Max-width 576px) --- */
+@media screen and (max-width: 576px) {
+  .navbar {
+    flex-direction: row; /* Maintains row direction but adjusts spacing */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .menu-toggle {
+    display: flex; /* Shows the hamburger menu icon on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hides navigation links by default on mobile */
+    flex-direction: column; /* Stacks links vertically when active */
+    width: 50%; /* Mobile menu takes up half the screen width */
+    position: absolute; /* Positions the menu relative to the navbar */
+    top: 99%; /* Positions the menu right below the navbar */
+    right: 0;
+    background-color: #00aaff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 15; /* Ensures the mobile menu is above other page content */
+  }
+
+  .nav-links.active {
+    display: flex; /* Displays the navigation links when the menu is active */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .nav-links li a {
+    display: block; /* Makes the entire link area clickable */
+    padding: 10px 0;
+    color: #fff;
+  }
+  .nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .hero {
+    padding: 1.5rem;
+    height: 70vh; /* Reduces hero height on smaller screens */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* Reduces font size for mobile screens */
+  }
+
+  .search-bar-container {
+    flex-direction: column; /* Stacks search input and button vertically */
+    gap: 15px;
+    padding: 10px;
+  }
+
+  #productSearch,
+  #searchButton {
+    width: 90%; /* Makes input and button take up most of the width */
+  }
+
+  .product-grid {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .product-item {
+    width: calc(100% - 10px); /* Products displayed in a single column */
+    margin-bottom: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+    margin: 15px auto;
+  }
+
+  .product-content {
+    flex-direction: column; /* Stacks image and info sections vertically */
+    gap: 15px;
+  }
+
+  .product-image-section,
+  .product-info-section {
+    flex: none; /* Resets flex properties for full width control */
+    width: 100%;
+    min-width: unset; /* Removes minimum width constraint on mobile */
+  }
+
+  .product-image-section img {
+    width: 100%;
+  }
+
+  /* Reservation container adjustments for mobile */
+  .reservation-container {
+    width: 90%; /* Occupies most of the width on mobile */
+    padding: 20px; /* Reduced padding for smaller screens */
+  }
+}
+
+/* --- Tablet Devices (Min-width 577px and Max-width 992px) --- */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  .hero h1 {
+    font-size: 2.5rem; /* Adjusts hero heading size for tablets */
+  }
+
+  .search-bar-container {
+    max-width: 500px; /* Limits search bar width on tablets */
+  }
+
+  .product-item {
+    width: calc(50% - 20px); /* Products displayed in two columns */
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .product-content {
+    flex-direction: row; /* Maintains row layout for product details */
+    flex-wrap: wrap; /* Allows wrapping if content is too wide */
+  }
+
+  .product-image-section,
+  .product-info-section {
+    flex: 1 1 calc(50% - 10px); /* Image and info sections share width (two columns) */
+  }
+
+  /* Reservation container adjustments for tablet */
+  .reservation-container {
+    width: 75%; /* Adjusts width for tablet view, larger than mobile but smaller than desktop */
+    padding: 30px;
+  }
+}
+
+/* --- Desktop Devices (Min-width 993px) --- */
+@media screen and (min-width: 993px) {
+  .product-item {
+    width: calc(33.333% - 20px); /* Products displayed in three columns, default desktop layout */
+  }
+}
